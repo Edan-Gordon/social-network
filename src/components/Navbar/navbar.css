@@ -1,0 +1,14 @@
+.navbar{
+	text-align: center;
+
+}
+.navbar a{
+	display: block;
+	border-radius: 10px;
+	text-decoration: none;
+	padding: 10px;
+
+}
+.navbar a:hover{
+	background-color: #fff9;
+}
