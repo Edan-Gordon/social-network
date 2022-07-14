@@ -1,7 +1,8 @@
 import React from 'react';
 import "./profile.css"
-import avatar_mini from "../../img/elon1.png"
+
 import avatar from "../../img/elon2.jpg"
+import Posts from "./posts/Posts.jsx"
 function Profile(){
   return(
   <div className="profile">
@@ -9,15 +10,7 @@ function Profile(){
       <img src={avatar}/>
       <p>Elon Musk</p>
     </div>
-    <div className="posts">
-      <input placeholder="write a caption"/>
-      <button>add post</button>
-      <div className="post">
-        <img src={avatar_mini}/>
-        <span>Elon Musk</span>
-        <p>lorem ipsum</p> 
-      </div>
-    </div>
+    <Posts/>
   </div>
   );
 }
