@@ -1,0 +1,44 @@
+.Dialogs{
+	padding: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+
+}
+.Message{
+
+	background-color: #040216;
+	padding: 15px;
+	border-radius: 20px;
+	margin: 0 0 10px;
+}
+.dialog{
+	width: 40%;
+	align-items: center;
+	margin: 5px;
+}
+.messages{
+ width: 40%;
+ align-items: flex-start;
+ margin: 5px;
+}
+.user{
+	text-align: center;
+	padding: 15px 0;
+	margin-bottom: 16px;
+
+}
+.user a {
+	color: white;
+	text-decoration: none;
+}
+.user:hover{
+	background-color: rgb(169, 169, 223);
+}
+
+input,button{
+width: 40%;
+margin: 0 auto;
+padding: 10px;
+
+}
