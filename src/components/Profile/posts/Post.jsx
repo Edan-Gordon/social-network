@@ -7,7 +7,9 @@ function Post(props){
       <div className="post">
         <img src={avatar_mini}/>
         <span>Elon Musk</span>
-        <p>{props.message}</p> 
+        <p>{props.message}</p>
+       ❤ <span>{props.likes}</span>
+        
       </div>
    
     		);
