@@ -4,7 +4,14 @@ import Message from "./Message.jsx"
 
 import DialogsItem from "./DialogsItem";
 
+let postText=React.createRef()
+
+
 function Dialogs(props){
+  let addMessage=()=>{
+    let text=postText.current.value;
+    props.addMessage(text)
+  }
   return(
 <div className="Dialogs">
     <div className="dialog">
@@ -12,11 +19,11 @@ function Dialogs(props){
     </div>
 
     <div className="messages">
-      {props.massageLog.map((e)=><Message id={e.id} message={e.message}/>)}
+      {props.messageLog.map((e)=><Message id={e.id} message={e.message}/>)}
       
-      <input placeholder="enter message"/>
+      <input ref={postText} placeholder="enter message"/>
       <br/>
-      <button>send</button>
+      <button onClick={addMessage}>send</button>
     </div>
 
   </div>

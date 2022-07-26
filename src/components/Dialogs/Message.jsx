@@ -2,7 +2,9 @@ import React from 'react';
 import "./Dialogs.css";
 
 
+
 function Message(props){
+
   return(
   <div className="Message">
 

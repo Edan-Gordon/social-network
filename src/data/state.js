@@ -9,7 +9,7 @@ let state={
     ],
   },
   dialogData:{
-     massageLog:[
+     messageLog:[
       {id:1,message:" Hello join my project"},
       {id:1,message:" Welcome to my project"},
       {id:2,message:" Hello thank you for inviting me to the project"},
@@ -19,6 +19,30 @@ let state={
       {id:1,name:"Jacky Chan"},
       {id:2,name:"Jack Chin"},
     ],
+ 
   },
+  navData:{
+    friendData:[
+     {img:require('./../img/fill.png'),name:'Fill'},
+     {img:require('./../img/max.png'),name:'Max'},
+     {img:require('./../img/john.jpg'),name:'John'},
+    ],
+  }
 };
+export let addMessage=(text)=>{
+  let newMessage={
+    id:25,message:text
+  }
+  state.dialogData.messageLog.push(newMessage)
+  console.log(state.dialogData.messageLog)
+}
+
+export let addPost=(text)=>{
+  let newPost={
+    id:6,message:text,likes:56
+  }
+  state.profileData.postlog.push(newPost)
+  console.log(state.profileData.postlog)
+}
+
 export default state
