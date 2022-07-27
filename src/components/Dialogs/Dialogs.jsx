@@ -11,6 +11,7 @@ function Dialogs(props){
   let addMessage=()=>{
     let text=postText.current.value;
     props.addMessage(text)
+    postText.current.value=''
   }
   return(
 <div className="Dialogs">

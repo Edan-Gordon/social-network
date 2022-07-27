@@ -1,3 +1,5 @@
+import {rerender} from './../render'
+
 let state={
   profileData:{
     postlog:[
@@ -29,20 +31,24 @@ let state={
     ],
   }
 };
+
 export let addMessage=(text)=>{
   let newMessage={
     id:25,message:text
   }
   state.dialogData.messageLog.push(newMessage)
-  console.log(state.dialogData.messageLog)
+ // console.log(state.dialogData.messageLog)
+ rerender(state)
+
 }
 
 export let addPost=(text)=>{
   let newPost={
     id:6,message:text,likes:56
   }
-  state.profileData.postlog.push(newPost)
-  console.log(state.profileData.postlog)
+  state.profileData.postlog.unshift(newPost)
+  //console.log(state.profileData.postlog)
+  rerender(state)
 }
 
 export default state
