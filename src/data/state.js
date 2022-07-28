@@ -9,6 +9,7 @@ let state={
       {id:4,message:"lol",likes:52},
       {id:5,message:"watch it",likes:65},
     ],
+    newPostText:''
   },
   dialogData:{
      messageLog:[
@@ -21,7 +22,7 @@ let state={
       {id:1,name:"Jacky Chan"},
       {id:2,name:"Jack Chin"},
     ],
- 
+    newMessageText:''
   },
   navData:{
     friendData:[
@@ -37,9 +38,16 @@ export let addMessage=(text)=>{
     id:25,message:text
   }
   state.dialogData.messageLog.push(newMessage)
+  state.dialogData.newMessageText=''
  // console.log(state.dialogData.messageLog)
  rerender(state)
 
+}
+
+export let onMessageChange=(text)=>{
+  state.dialogData.newMessageText=text;
+
+  rerender(state)
 }
 
 export let addPost=(text)=>{
@@ -47,7 +55,13 @@ export let addPost=(text)=>{
     id:6,message:text,likes:56
   }
   state.profileData.postlog.unshift(newPost)
+  state.profileData.newPostText=''
   //console.log(state.profileData.postlog)
+  rerender(state)
+} 
+
+export let onPostChange=(text)=>{
+  state.profileData.newPostText=text;
   rerender(state)
 }
 

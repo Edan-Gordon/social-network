@@ -11,7 +11,10 @@ function Dialogs(props){
   let addMessage=()=>{
     let text=postText.current.value;
     props.addMessage(text)
-    postText.current.value=''
+    //postText.current.value=''
+  }
+  let onChange=()=>{
+    props.onMessageChange(postText.current.value)
   }
   return(
 <div className="Dialogs">
@@ -22,7 +25,8 @@ function Dialogs(props){
     <div className="messages">
       {props.messageLog.map((e)=><Message id={e.id} message={e.message}/>)}
       
-      <input ref={postText} placeholder="enter message"/>
+      <input ref={postText} placeholder="enter message" onChange={onChange} value={props.newMessageText}/>
+
       <br/>
       <button onClick={addMessage}>send</button>
     </div>
