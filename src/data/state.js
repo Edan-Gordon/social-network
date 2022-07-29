@@ -1,4 +1,4 @@
-import {rerender} from './../render'
+
 
 let state={
   profileData:{
@@ -33,6 +33,14 @@ let state={
   }
 };
 
+let rerender=(state)=>{
+  return
+}
+
+export let subscribe=(observer)=>{
+  rerender=observer
+}
+
 export let addMessage=(text)=>{
   let newMessage={
     id:25,message:text
@@ -64,5 +72,7 @@ export let onPostChange=(text)=>{
   state.profileData.newPostText=text;
   rerender(state)
 }
+
+window.state=state
 
 export default state
