@@ -1,5 +1,5 @@
 
-import state from './data/state.js'
+import store from './data/state.js'
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -7,14 +7,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import {addPost,addMessage,onPostChange,onMessageChange,subscribe} from './data/state.js'
+//import {addPost,addMessage,onPostChange,onMessageChange,subscribe} from './data/state.js'
 
  const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerender=(state)=>{
  
   root.render(
     <React.StrictMode>
-      <App state={state} addPost={addPost} addMessage={addMessage} onPostChange={onPostChange} onMessageChange={onMessageChange}/>
+      <App state={state} addPost={store.addPost.bind(store)} addMessage={store.addMessage.bind(store)} onPostChange={store.onPostChange.bind(store)} onMessageChange={store.onMessageChange.bind(store)}/>
     </React.StrictMode>
   );
 }
@@ -25,5 +25,5 @@ export let rerender=(state)=>{
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-rerender(state)
-subscribe(rerender)
+rerender(store.getState())
+store.subscribe(rerender)
