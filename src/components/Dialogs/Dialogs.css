@@ -11,6 +11,7 @@
 	padding: 15px;
 	border-radius: 20px;
 	margin: 0 0 10px;
+	overflow: hidden;
 }
 .dialog{
 	width: 40%;
@@ -36,7 +37,7 @@
 	background-color: rgb(169, 169, 223);
 }
 
-input,button{
+textarea,button{
 width: 40%;
 margin: 0 auto;
 padding: 10px;

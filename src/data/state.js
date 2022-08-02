@@ -44,9 +44,28 @@ let store={
     this.rerender=observer
   },
 
-   addMessage(text){
+  dispatch(action){
+    switch(action.type){
+      case 'ADD-POST':
+        this.addPost()
+      break;
+       case 'POST-CHANGE':
+        this.onPostChange(action.text)
+      break;
+       case 'ADD-MESSAGE':
+       this.addMessage()
+      break;
+       case 'MESSAGE-CHANGE':
+       this.onMessageChange(action.text)
+      break;
+       case '':
+      break;
+    }
+  },
+
+   addMessage(){
     let newMessage={
-      id:25,message:text
+      id:25,message:this._state.dialogData.newMessageText
     }
     this._state.dialogData.messageLog.push(newMessage)
     this._state.dialogData.newMessageText=''
@@ -61,9 +80,11 @@ let store={
     this.rerender(this._state)
   },
 
-  addPost(text){
+  addPost(){
     let newPost={
-      id:6,message:text,likes:56
+      id:6,
+      message:this._state.profileData.newPostText,
+      likes:56
     }
     this._state.profileData.postlog.unshift(newPost)
     this._state.profileData.newPostText=''

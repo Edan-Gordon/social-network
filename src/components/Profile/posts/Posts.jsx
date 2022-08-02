@@ -4,12 +4,12 @@ let postText=react.createRef()
 
 function Posts(props){
   let addPost=()=>{
-    let text=postText.current.value;
-    props.addPost(text)
+  // let text=postText.current.value;
+    props.dispatch({type:'ADD-POST'})
   //  postText.current.value=''
   }
   let onChange=()=>{
-    props.onPostChange(postText.current.value)
+    props.dispatch({type:'POST-CHANGE',text:postText.current.value})
   }
 	return(
     <div className="posts">
