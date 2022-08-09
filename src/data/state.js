@@ -1,3 +1,6 @@
+import dialogReducer from "./dialogReducer"
+import profileReducer from "./profileReducer"
+
 let store={ 
 
    _state:{
@@ -45,58 +48,18 @@ let store={
   },
 
   dispatch(action){
-    switch(action.type){
-      case 'ADD-POST':
-        this.addPost()
-      break;
-       case 'POST-CHANGE':
-        this.onPostChange(action.text)
-      break;
-       case 'ADD-MESSAGE':
-       this.addMessage()
-      break;
-       case 'MESSAGE-CHANGE':
-       this.onMessageChange(action.text)
-      break;
-       case '':
-      break;
-    }
-  },
-
-   addMessage(){
-    let newMessage={
-      id:25,message:this._state.dialogData.newMessageText
-    }
-    this._state.dialogData.messageLog.push(newMessage)
-    this._state.dialogData.newMessageText=''
-   // console.log(state.dialogData.messageLog)
-   this.rerender(this._state)
-
-  },
-
-  onMessageChange(text){
-    this._state.dialogData.newMessageText=text;
+    profileReducer(this._state.profileData,action)
+    dialogReducer(this._state.dialogData,action)
+     
 
     this.rerender(this._state)
   },
 
-  addPost(){
-    let newPost={
-      id:6,
-      message:this._state.profileData.newPostText,
-      likes:56
-    }
-    this._state.profileData.postlog.unshift(newPost)
-    this._state.profileData.newPostText=''
-    //console.log(state.profileData.postlog)
-    this.rerender(this._state)
-  },
-
-  onPostChange(text){
-    this._state.profileData.newPostText=text;
-    this.rerender(this._state)
-  }
+  
 }
+
 window.state=store._state
 
 export default store
+
+

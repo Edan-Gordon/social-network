@@ -37,9 +37,20 @@
 	background-color: rgb(169, 169, 223);
 }
 
-textarea,button{
-width: 40%;
-margin: 0 auto;
+.messages textarea{
+width: 70%;
+height: 28px;
+resize: none;
+
 padding: 10px;
+font-family: inherit;
+}
+.messages button{
+	width: 20%;
+
+padding: 10px;
+vertical-align:top;
+height:50px ;
+
 
 }

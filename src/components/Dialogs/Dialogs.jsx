@@ -4,18 +4,20 @@ import Message from "./Message.jsx"
 
 import DialogsItem from "./DialogsItem";
 
+import {addMessageAC,onMessageChangeAC} from "./../../data/dialogReducer"
+
+
 let postText=React.createRef()
 
 
 function Dialogs(props){
   let addMessage=()=>{
-   // let text=postText.current.value;
-    props.dispatch({type:'ADD-MESSAGE'})
-    //postText.current.value=''
+    props.dispatch(addMessageAC())
   }
   let onChange=()=>{
-    props.dispatch({type:'MESSAGE-CHANGE',text:postText.current.value})
+    props.dispatch(onMessageChangeAC(postText.current.value))
   }
+  
   return(
 <div className="Dialogs">
     <div className="dialog">
@@ -27,8 +29,9 @@ function Dialogs(props){
       
       <textarea ref={postText} placeholder="enter message" onChange={onChange} value={props.newMessageText}/>
 
-      <br/>
+      
       <button onClick={addMessage}>send</button>
+
     </div>
 
   </div>
