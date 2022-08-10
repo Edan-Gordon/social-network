@@ -1,8 +1,20 @@
 const ADD_MESSAGE='ADD-MESSAGE'
 const MESSAGE_CHANGE='MESSAGE-CHANGE'
 
-
-let dialogReducer=(state,action)=>{
+let initialstore={
+  messageLog:[
+        {id:1,message:" Hello join my project"},
+        {id:1,message:" Welcome to my project"},
+        {id:2,message:" Hello thank you for inviting me to the project"},
+        {id:2,message:" i will see u at the project venue"}
+      ],
+       dialogNames:[
+        {id:1,name:"Jacky Chan"},
+        {id:2,name:"Jack Chin"},
+      ],
+      newMessageText:''
+}
+let dialogReducer=(state=initialstore,action)=>{
 	switch(action.type){
      
        case ADD_MESSAGE:

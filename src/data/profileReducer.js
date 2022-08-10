@@ -1,7 +1,18 @@
 const ADD_POST='ADD-POST'
 const POST_CHANGE='POST-CHANGE'
 
-let profileReducer=(state,action)=>{
+let initialstore={
+ postlog:[
+        {id:1,message:"wow",likes:8},
+        {id:2,message:"no way",likes:78},
+        {id:3,message:"here we go again",likes:304},
+        {id:4,message:"lol",likes:52},
+        {id:5,message:"watch it",likes:65},
+      ],
+      newPostText:''
+}
+
+let profileReducer=(state=initialstore,action)=>{
 	if (action.type==ADD_POST){
 		if (state.newPostText) {
           let newPost={
@@ -16,6 +27,7 @@ let profileReducer=(state,action)=>{
 	}else if (action.type==POST_CHANGE) {
 		state.newPostText=action.text;
 	}
+  return state
 }
 export default profileReducer
 

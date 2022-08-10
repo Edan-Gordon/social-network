@@ -11,7 +11,8 @@ function Posts(props){
   }
   let onChange=()=>{
     props.dispatch(onPostChangeAC(postText.current.value))
-  }
+  } 
+  console.log(props)
 	return(
     <div className="posts">
       <input ref={postText} placeholder="write a caption" value={props.newPostText} onChange={onChange}/>

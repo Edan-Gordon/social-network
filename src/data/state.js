@@ -1,5 +1,6 @@
 import dialogReducer from "./dialogReducer"
 import profileReducer from "./profileReducer"
+import navbarReducer from "./navbarReducer"
 
 let store={ 
 
@@ -39,7 +40,7 @@ let store={
     return this._state
   },
 
-   rerender(state){
+   rerender(state){//#
     return
   },
 
@@ -50,7 +51,7 @@ let store={
   dispatch(action){
     profileReducer(this._state.profileData,action)
     dialogReducer(this._state.dialogData,action)
-     
+    navbarReducer(this._state.navData,action)
 
     this.rerender(this._state)
   },
